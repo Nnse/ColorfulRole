@@ -44,7 +44,7 @@ async def color(ctx, hex_str: str, target: str = ''):
     await target_user.add_roles(role)
 
 
-@bot.command()
+@bot.command(aliases=['r'])
 async def reset(ctx, target: str = ''):
     target_user: discord.Member = ctx.author
     if ctx.author.guild_permissions.administrator:
