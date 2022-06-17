@@ -1,7 +1,5 @@
 import asyncio
-import tkinter
 from os import getenv
-from tkinter import colorchooser
 from typing import Union
 
 import discord
@@ -27,22 +25,6 @@ async def on_guild_join(guild):
 async def on_guild_remove(guild):
     await asyncio.sleep(5)
     await bot.change_presence(activity=discord.Game(name=str(len(bot.guilds)) + ' servers'))
-
-
-@bot.command(aliases=['p'])
-async def pallet(ctx, target: str = ''):
-    target_user: discord.Member = ctx.author
-    if ctx.author.guild_permissions.administrator:
-        if target != '':
-            user = await fetch_target_user(ctx.guild, target)
-            if user is not None:
-                target_user = user
-
-    await quit_hex_role(target_user)
-
-    hex_str = get_color_from_pallet()
-    role = await fetch_hex_role(ctx.guild, hex_str)
-    await target_user.add_roles(role)
 
 
 @bot.command(aliases=['c'])
@@ -72,18 +54,6 @@ async def reset(ctx, target: str = ''):
                 target_user = user
 
     await quit_hex_role(target_user)
-
-
-def get_color_from_pallet() -> str:
-    root = tkinter.Tk()
-    root.withdraw()
-    root.attributes("-topmost", True)
-    c = colorchooser.askcolor(parent=root)
-    if c is not None:
-        root.destroy()
-    root.mainloop()
-
-    return str(c[1])
 
 
 async def fetch_target_user(guild: discord.Guild, text: str) -> Union[discord.Member, None]:
