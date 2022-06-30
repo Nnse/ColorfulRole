@@ -1,36 +1,27 @@
-# discordpy-startup
+# ColorRoleBot
+**権限なしでも誰でも**自分の名前に色を付けられるように（装飾ロールを付与）するボット。  
+ロールの優先位置により、色が適応されない可能性があるのでその際は手動で位置を上にしてやる必要があります。  
+　
+　
+## サーバーに追加する
+説明は割愛
+　  
+　
+### **;color #&lt;hex&gt;**  
+エイリアスは「**;c**」  
+コマンドの実行者のロールを指定したHex値の色で装飾するロールを作って付与します。  
+既に存在する色の場合は、そのロールにユーザーが追加で登録されます。  
+使用例： `;color #ff0000`  
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+コマンド実行者がアドミン権限を所持している場合のみ、引数に対象ユーザーを持たせられます。  
+使用例： `;color #ff0000 @username`
+　  
+　
+### **;reset**  
+エイリアスは「**;r**」  
+コマンドの実行者からカラーロールを除去します。    
+その際、そのロールの追加人数が0人の場合は、自動でロールが消えます。  
+使用例： `;reset`  
 
-- Herokuでdiscord.pyを始めるテンプレートです。
-- Use Template からご利用ください。
-- 使い方はこちら： [Discord Bot 最速チュートリアル【Python&Heroku&GitHub】 - Qiita](https://qiita.com/1ntegrale9/items/aa4b373e8895273875a8)
-
-## 各種ファイル情報
-
-### discordbot.py
-PythonによるDiscordBotのアプリケーションファイルです。
-
-### requirements.txt
-使用しているPythonのライブラリ情報の設定ファイルです。
-
-### Procfile
-Herokuでのプロセス実行コマンドの設定ファイルです。
-
-### runtime.txt
-Herokuでの実行環境の設定ファイルです。
-
-### app.json
-Herokuデプロイボタンの設定ファイルです。
-
-### .github/workflows/flake8.yaml
-GitHub Actions による自動構文チェックの設定ファイルです。
-
-### .gitignore
-Git管理が不要なファイル/ディレクトリの設定ファイルです。
-
-### LICENSE
-このリポジトリのコードの権利情報です。MITライセンスの範囲でご自由にご利用ください。
-
-### README.md
-このドキュメントです。
+コマンド実行者がアドミン権限を所持している場合のみ、引数に対象ユーザーを持たせられます。  
+使用例： `;reset @username`
